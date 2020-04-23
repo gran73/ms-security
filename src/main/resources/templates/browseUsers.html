@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Browse Users - Metropolitan Convention Center Users</title>
+</head>
+<body>
+	<h1>Browse Users</h1>
+	<a href="add">Add User</a>
+	<table border="1">
+		<tr>
+			<td>&nbsp;</td>
+			<td>User Id</td>
+			<td>User Name</td>
+			<td>Email</td>
+			<td>Password</td>
+		</tr>
+			<tr th:each="user : ${userList}">
+			<!-- Add Edit link -->
+			<td>Edit</td>
+			<!-- Other user details -->
+			<td th:text="${user.id}"></td>
+			<td th:text="${user.name}"></td>
+			<td th:text="${user.email}"></td>
+			<td th:text="${user.password}"></td>
+		</tr>
+	</table>
+	<br />
+
+	<!-- Need URL for index page -->
+	<a th:href="@{/index.html}">Back to Main Menu</a>
+	
+	<div th:include="footer :: content"></div>
+
+</body>
+</html>
