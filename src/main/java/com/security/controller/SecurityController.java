@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class SecurityController {
 	
 	@GetMapping
-	public String validateCredentials(String user, String password) {
+	public String authenticate(String user, String password) {
 		return "JWT Token";
 	}
 	
