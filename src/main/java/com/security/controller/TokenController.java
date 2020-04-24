@@ -27,14 +27,18 @@ public class TokenController {
 		String password = tokenRequestData.getPassword();
 		String scopes = tokenRequestData.getScopes();
 		
+		System.out.println("Token user=" + username + " password="+password+" scopes="+scopes);
 		if (username != null && username.length() > 0 
 				&& password != null && password.length() > 0 
 				&& Authenticator.checkPassword(username, password)) {
 			Token token = jwtUtil.createToken(scopes);
 			ResponseEntity<?> response = ResponseEntity.ok(token);
+			
+			System.out.println("Token created = " + token);
 			return response;			
 		}
 		// bad request
+		System.out.println("Failed authentication");
 		return (ResponseEntity<?>) ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
 		
 	}

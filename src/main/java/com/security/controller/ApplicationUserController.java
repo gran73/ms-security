@@ -29,12 +29,13 @@ public class ApplicationUserController {
 	
 	//default constructor
 	public ApplicationUserController() {
-		ApplicationUser c1 = new ApplicationUser(1, "Gurinder", "pass", "gurinder@abc.com");
-		ApplicationUser c2 = new ApplicationUser(1, "Jyothi", "pass", "jyothi@abc.com");
-		ApplicationUser c3 = new ApplicationUser(1, "Dan", "pass", "dan@abc.com");
+		ApplicationUser c1 = new ApplicationUser(1, "Gurinder", "pa$$w0rd", "gurinder@abc.com");
+		ApplicationUser c2 = new ApplicationUser(2, "Jyothi", "pa$$w0rd", "jyothi@abc.com");
+		ApplicationUser c3 = new ApplicationUser(3, "Dan", "pass", "dan@abc.com");
 		list.add(c1);
 		list.add(c2);
 		list.add(c3);
+		System.out.println("Successfully initialized users " + list.toString());
 	}
 
 //	@PostMapping("/sign-up")
@@ -46,6 +47,7 @@ public class ApplicationUserController {
 	
 	@GetMapping
 	public String getAll() {
+		System.out.println("INSIDE GET METHOD   ... " + list.size());
 		String response = "[ ";
 		for (int i = 0; i < list.size(); i++) {
 			response += list.get(i).toJSON();
